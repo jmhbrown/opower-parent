@@ -14,7 +14,7 @@
     <groupId>com.opower</groupId>
     <artifactId>opower-parent</artifactId>
     <packaging>pom</packaging>
-    <version>2.5.0-SNAPSHOT</version>
+    <version>2.5.0-cdh5-SNAPSHOT</version>
     <name>Opower Parent Project</name>
     <description>Parent POM for all Opower artifacts</description>
     <url>http://opower.com/</url>
@@ -474,6 +474,43 @@
                                     <message>No Snapshots Allowed!</message>
                                     <onlyWhenRelease>true</onlyWhenRelease>
                                 </requireReleaseDeps>
+                            </rules>
+                            <fail>true</fail>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>enforce-no-cdh4-dependencies</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <bannedDependencies>
+                                    <message>Cloudera Hadoop CDH4 dependency detected. Please upgrade to CDH5. Contact
+                                        data-infrastructure@opower.com if you have questions</message>
+                                    <excludes>
+                                        <!-- hdfs -->
+                                        <exclude>org.apache.hadoop:hadoop-common:(,2.6.0-cdh5.4.4)</exclude>
+                                        <exclude>org.apache.hadoop:hadoop-hdfs:(,2.6.0-cdh5.4.4)</exclude>
+
+
+                                        <!-- hbase. Favor the chd5 hbase-client and hbase-server dependencies-->
+                                        <exclude>org.apache.hbase:hbase</exclude>
+
+                                        <!-- mapreduce -->
+                                        <exclude>org.apache.hadoop:hadoop-core:(,2.6.0-mr1-cdh5.4.4)</exclude>
+                                        <exclude>org.apache.hadoop:hadoop-test:(,2.6.0-mr1-cdh5.4.4)</exclude>
+                                        <exclude>org.apache.hadoop:hadoop-minicluster:(,2.6.0-mr1-cdh5.4.4)</exclude>
+                                        <exclude>org.apache.hadoop:hadoop-tools:(,2.6.0-mr1-cdh5.4.4)</exclude>
+
+                                        <!-- hive -->
+                                        <exclude>org.apache.hive:hive-common:(,1.1.0-cdh5.4.4)</exclude>
+                                        <exclude>org.apache.hive:hive-jdbc:(,1.1.0-cdh5.4.4)</exclude>
+                                        <exclude>org.apache.hive:hive-service:(,1.1.0-cdh5.4.4)</exclude>
+                                        <exclude>org.apache.hive:hive-builtins:(,1.1.0-cdh5.4.4)</exclude>
+                                        <exclude>org.apache.hive:hive-serde:(,1.1.0-cdh5.4.4)</exclude>
+                                    </excludes>
+                                 </bannedDependencies>
                             </rules>
                             <fail>true</fail>
                         </configuration>
