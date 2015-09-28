@@ -1,3 +1,6 @@
+What's new in 3.0.0-cdh5
+    Add maven enforcer checks for legacy (cdh4) artifacts
+
 What's new in 2.5.0
     Update docker-maven-plugin version to latest [ARCH-68] [ARCH-69]
 
