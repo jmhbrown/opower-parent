@@ -14,7 +14,7 @@
     <groupId>com.opower</groupId>
     <artifactId>opower-parent</artifactId>
     <packaging>pom</packaging>
-    <version>2.5.0-cdh5-SNAPSHOT</version>
+    <version>3.0.0-cdh5-SNAPSHOT</version>
     <name>Opower Parent Project</name>
     <description>Parent POM for all Opower artifacts</description>
     <url>http://opower.com/</url>
