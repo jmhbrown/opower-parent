@@ -1,4 +1,4 @@
-What's new in 3.0.0-cdh5
+What's new in 3.99.0
     Add maven enforcer checks for legacy (cdh4) artifacts
 
 What's new in 2.5.0
